@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">TimeCue Releases</h1>
+<h1 align="center">TimeCue</h1>
 
 <p align="center">
   <strong>Reliable LTC and MTC show control for Resolume Arena.</strong><br>
@@ -30,6 +30,22 @@ Download **[TimeCue 0.8.4](https://github.com/4H1Mzs/TimeCue-Releases/releases/t
 - **Bitfocus Companion** — offline `.tgz` module package.
 
 The `latest.yml`, `latest-mac.yml` and `latest-linux.yml` files are the public update manifests used by TimeCue. `SHA256SUMS.txt` contains checksums for every published artifact.
+
+## 4H1M
+
+<p align="center">
+  <a href="https://4h1m.com/">
+    <img src="4h1m-logo-white.png" width="190" alt="4H1M Production">
+  </a>
+</p>
+
+4H1M, z.s. is a Czech nonprofit audiovisual production serving churches and Christian events through sound, lighting, visuals, livestreaming and video. TimeCue is developed as part of that work and is shared to support reliable, accessible show control for live productions.
+
+<p>
+  <a href="https://www.darujme.cz/4h1m"><img alt="Support 4H1M" src="https://img.shields.io/badge/Support%204H1M%20development-f0c75e?style=for-the-badge&logo=heart&logoColor=20252b"></a>
+</p>
+
+[4H1M.com](https://4h1m.com/) · [Instagram @4h1m.production](https://www.instagram.com/4h1m.production/)
 
 ## Features
 
@@ -103,19 +119,31 @@ The app includes two independent timecode engines, a dedicated cue editor, LTC g
 
 For the complete documentation, screenshots, setup guides and source code, visit the **[main TimeCue repository](https://github.com/4H1Mzs/TimeCue)**.
 
-## 4H1M
+## Interface
 
-<p align="center">
-  <a href="https://4h1m.com/">
-    <img src="4h1m-logo.png" width="190" alt="4H1M Production">
-  </a>
-</p>
+### Live monitor
 
-4H1M, z.s. is a Czech nonprofit audiovisual production serving churches and Christian events through sound, lighting, visuals, livestreaming and video. TimeCue is developed as part of that work and is shared to support reliable, accessible show control for live productions.
+![TimeCue main window showing two LTC engines and the live cue list](docs/screenshots/main-window.jpg)
 
-If TimeCue helps your work, you can **[support 4H1M's development and ministry](https://www.darujme.cz/4h1m)**.
+Both incoming clocks remain visible in dual-engine mode. Selecting an engine only chooses which clock the transport and generator controls; it does not hide the other engine's state.
 
-[4H1M.com](https://4h1m.com/) · [Instagram @4h1m.production](https://www.instagram.com/4h1m.production/)
+### Dedicated Cue Editor
+
+![TimeCue dedicated tabular Cue Editor](docs/screenshots/cue-editor.jpg)
+
+The Cue Editor gives each cue a real row with clear dividers, compact controls, and room for show data. Changes stay in a draft until **Apply changes** is selected.
+
+### Generator audio output
+
+![TimeCue LTC generator audio output settings](docs/screenshots/generator-output.jpg)
+
+Use a muted internal loopback for local tests, or route audible LTC to the system default or a selected physical/virtual audio device. Audio-output mode can also trigger TimeCue's local cues from the same generator timeline.
+
+### Settings and routing
+
+![TimeCue settings and routing](docs/screenshots/settings-window.jpg)
+
+Configure Resolume, timecode sources, delay compensation, generator output, RTP-MIDI and Companion from the dedicated settings window.
 
 ---
 
