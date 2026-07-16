@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://4h1m.com/">
-    <img src="https://raw.githubusercontent.com/4H1Mzs/TimeCue/main/src/assets/4h1m-logo.svg" width="190" alt="4H1M Production">
+  <a href="https://github.com/4H1Mzs/TimeCue">
+    <img src="timecue-logo.png" width="136" height="136" alt="TimeCue logo">
   </a>
 </p>
 
@@ -31,6 +31,70 @@ Download **[TimeCue 0.8.4](https://github.com/4H1Mzs/TimeCue-Releases/releases/t
 
 The `latest.yml`, `latest-mac.yml` and `latest-linux.yml` files are the public update manifests used by TimeCue. `SHA256SUMS.txt` contains checksums for every published artifact.
 
+## Features
+
+### Two clocks, one clear show state
+
+- One or two independent timecode engines with always-visible clocks
+- LTC audio, system MIDI, or native RTP-MIDI source selection independently for each engine
+- Separate input device, channel, frame rate, numbering mode, and delay compensation per engine
+- 24, 25, 29.97 drop-frame/non-drop-frame, and 30 fps timecode
+- Forward and reverse LTC decoding with continuity and discontinuity handling
+- Raw or compensated clock display, with an unmistakable amber compensated state
+
+### Cue control made for Resolume
+
+- Trigger a clip by layer and column, or launch a full column across every layer
+- `At start`, `At end`, and `During` cue modes
+- Per-cue forward, reverse, or bidirectional filtering
+- Resolume composition scan and Engine A/B layer assignment
+- Manual cue tests, resettable cue state, and an operator-focused event history
+- `.timecue` show import and export
+
+### A proper cue-editing workflow
+
+- Fast inline editing of timecode, mode, engine and name in the live cue list
+- Dedicated spreadsheet-style Cue Editor window
+- Add, insert, duplicate, edit, and validate rows without covering the live monitor
+- Explicit Apply/Cancel workflow keeps unfinished edits away from the running show
+- Revision checks prevent an older editor draft from overwriting newer inline edits
+- Consistent Engine A/B color coding across clocks, live cues, and the editor
+- Disabled cues are visibly muted at a glance while remaining available for quick edits
+
+### LTC generation and routing
+
+- Internal loopback for testing the decoder and cue logic
+- Audible LTC output to the system default or a selected soundcard
+- Start time, frame rate, direction, level, and output routing controls
+- Optional local cue triggering while the generator also sends LTC to other devices
+
+### MIDI timecode and network sessions
+
+- MTC quarter-frame transport and full-frame locate messages
+- Automatic 24, 25, 29.97 drop-frame and 30 fps detection
+- Forward and reverse transport compensation
+- Physical and virtual system MIDI ports
+- Built-in AppleMIDI/RTP-MIDI session with Bonjour advertisement and discovery
+- Incoming invitations, direct hostname/IP connections, and independent peer routing for Engine A/B
+- OS-provided RTP-MIDI ports remain available through the system MIDI source
+- Quarter-frame fallback when the operating system does not grant SysEx access
+
+### Installation and updates
+
+- Per-user Windows installer with no administrator prompt
+- Signed and notarized macOS DMG plus ZIP update payloads
+- Linux AppImage distribution
+- In-app update check, download progress and explicit restart-to-install on Windows, signed macOS, and Linux builds
+- No automatic download, installation or restart during a show
+
+### Bitfocus Companion control
+
+- Live Engine A/B timecode, source, frame rate, direction and signal-health variables
+- Overall and per-engine next-cue name, target and countdown
+- Generator, input, cue reset, active-engine and clock-display actions
+- Signal, transport, countdown and last-cue-result feedbacks
+- A coordinated dark preset library ready for Stream Deck and control surfaces
+
 ## About TimeCue
 
 TimeCue is a cross-platform desktop companion for timecode-driven Resolume shows. It listens to LTC from an audio interface or MTC from MIDI and RTP-MIDI sessions, keeps raw and compensated clocks visible, and fires precise clip or full-column cues through Resolume Arena's REST API.
@@ -40,6 +104,12 @@ The app includes two independent timecode engines, a dedicated cue editor, LTC g
 For the complete documentation, screenshots, setup guides and source code, visit the **[main TimeCue repository](https://github.com/4H1Mzs/TimeCue)**.
 
 ## 4H1M
+
+<p align="center">
+  <a href="https://4h1m.com/">
+    <img src="4h1m-logo.png" width="190" alt="4H1M Production">
+  </a>
+</p>
 
 4H1M, z.s. is a Czech nonprofit audiovisual production serving churches and Christian events through sound, lighting, visuals, livestreaming and video. TimeCue is developed as part of that work and is shared to support reliable, accessible show control for live productions.
 
