@@ -1,35 +1,166 @@
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue">
-    <img src="timecue-logo.png" width="136" height="136" alt="TimeCue logo">
-  </a>
+  <img src="timecue-logo.png" width="136" height="136" alt="TimeCue logo">
 </p>
 
 <h1 align="center">TimeCue</h1>
 
 <p align="center">
-  <strong>Reliable LTC and MTC show control for Resolume Arena.</strong><br>
-  Download the latest tested TimeCue packages for Windows, macOS, Linux and Bitfocus Companion.
+  <strong>Timecode-driven show control for Resolume Arena.</strong><br>
+  Fire clips and columns, and set or fade any Resolume parameter from LTC or MTC — with the show clock always in view.
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue/releases"><img alt="Source repository" src="https://img.shields.io/badge/source-4H1Mzs%2FTimeCue-5c8cff?logo=github"></a>
-  <img alt="Version 0.8.4" src="https://img.shields.io/badge/version-0.8.4-5c8cff">
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.9.0-5c8cff?style=for-the-badge"></a>
+</p>
+
+<p align="center">
+  <img alt="Version 0.9.0" src="https://img.shields.io/badge/version-0.9.0-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
+  <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
+</p>
+
+<p align="center">
+  <a href="#download">Download</a> ·
+  <a href="#whats-new-in-09">What's new</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#interface">Interface</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#bitfocus-companion">Companion</a>
 </p>
 
 ---
 
-## Latest release
+TimeCue is a desktop companion for timecode-driven Resolume shows on Windows, macOS and Linux. It listens to LTC from an audio interface or MTC from MIDI and RTP-MIDI sessions, keeps the incoming clock visible, triggers clips and columns, and sets or fades any parameter in the composition — effects, opacity, blend modes, colours — locked to the timecode.
 
-Download **[TimeCue 0.8.4](https://github.com/4H1Mzs/TimeCue-Releases/releases/tag/v0.8.4)** from the Releases page.
+![TimeCue main window: a live LTC clock, clip cues and parameter fades for Resolume, and a green Resolume connection badge](docs/screenshots/main-window.jpg)
+
+## Download
+
+Get **[the latest TimeCue release](https://github.com/4H1Mzs/TimeCue-Releases/releases/latest)** from the Releases page.
 
 - **Windows x64** — per-user NSIS installer with in-app updates. Windows packages are currently unsigned and may show a SmartScreen warning.
 - **macOS Intel and Apple Silicon** — signed and notarized DMG and ZIP packages.
 - **Linux x64** — portable AppImage.
 - **Bitfocus Companion** — offline `.tgz` module package.
 
-The `latest.yml`, `latest-mac.yml` and `latest-linux.yml` files are the public update manifests used by TimeCue. `SHA256SUMS.txt` contains checksums for every published artifact.
+`latest.yml`, `latest-mac.yml` and `latest-linux.yml` are the public update manifests used by TimeCue. `SHA256SUMS.txt` contains checksums for every published artifact.
+
+> [!IMPORTANT]
+> TimeCue is preview software. Test the exact build, audio interface, timecode source and Resolume composition before using it in a live show.
+
+## What's new in 0.9
+
+### Set and fade any Resolume parameter
+
+A cue can now target **any parameter** in the open composition instead of only a clip or column: effect parameters, opacity, layer master, blend modes, bypass, choices and colours. Fades are locked to the timecode — seek into the middle of a fade and Resolume gets the matching value immediately; play in reverse and the fade runs backwards. Between timecode frames, running fades are advanced on the clock for about 60 smooth updates per second.
+
+![Cue Editor with clip cues, a master fade, a Transform scale push-in, a colour fade with the Resolume palette and an instant blend-mode change](docs/screenshots/cue-editor.jpg)
+
+- **Fade** with a start and target value, a duration in seconds (`4s`), frames (`100f`) or timecode, and a linear, ease-in, ease-out or ease-in-out curve
+- **Set** a value instantly by leaving the duration empty
+- **Continue** from where the previous cue on the same parameter ended by leaving the start value empty
+- **Colours** with a colour picker, the parameter's own Resolume palette, and per-channel fades
+- **↓ Start / ↓ Target** take the live value from Arena, so a look can be tuned in Resolume and captured without typing numbers
+
+### Pick parameters from the live composition
+
+![Searchable parameter picker listing the Transform parameters of layer 4 with their ranges](docs/screenshots/parameter-picker.jpg)
+
+Every numeric, on/off, choice and colour parameter of the composition, its layer groups, layers and clips — including every video and audio effect — is listed with its range and unit. Type a few words to narrow thousands of parameters down.
+
+### See problems before the show, not during it
+
+![Resolume badge reporting two warnings and two highlighted cues: an empty clip slot and an effect that is no longer in the composition](docs/screenshots/preshow-check.jpg)
+
+The **Resolume** badge shows whether TimeCue is connected. Whenever Resolume reports its composition — on connect and whenever layers, clips or effects change — every cue is checked against it. Empty clip slots, missing layers and columns, moved or removed effects and invalid values are highlighted with the reason.
+
+### Import SMPTE clips with their offsets
+
+![Scan dialog after reading 32 SMPTE offsets from the saved composition file](docs/screenshots/scan-smpte.jpg)
+
+Resolume's API does not report SMPTE offsets, so **Read SMPTE offsets from composition file…** takes them from the saved `.avc` file of the deck that is open in Resolume. Clips are matched by layer, column and name, and Resolume's *SMPTE 1* / *SMPTE 2* inputs map to Engine A and B in dual-engine mode. Save the composition in Arena before reading it.
+
+### Also new
+
+- Bitfocus Companion: Resolume connection and warning variables and feedbacks, a **Stop running test fades** action, and parameter cues in **Trigger a cue now**
+- Parameter cues are delivered after a Resolume outage at their current timecode state
+- Rescans after an Arena restart update cues instead of duplicating them
+- Plain-language connection errors and longer timeouts for large compositions
+- Show files with parameter cues need TimeCue 0.9 or newer
+
+## Features
+
+### Two clocks, one clear show state
+
+- One or two independent timecode engines with always-visible clocks
+- LTC audio, system MIDI, or native RTP-MIDI source selection independently for each engine
+- 24, 25, 29.97 drop-frame/non-drop-frame, and 30 fps timecode
+- Forward and reverse decoding with continuity and discontinuity handling
+- Raw or delay-compensated clock display
+
+### Clips, columns and parameters
+
+- Trigger a clip by layer and column, or launch a full column across every layer
+- `At start`, `At end`, and `During` cue modes with forward, reverse or bidirectional filtering
+- Set or fade any parameter: effects, opacity, layer master, blend modes, bypass, choices and colours
+- Timecode-locked, smoothed fades with selectable curves
+- Composition scan with SMPTE offsets read from the saved composition file
+- Manual cue tests, resettable cue state, and `.timecue` show import and export
+
+### Show safety
+
+- Resolume connection badge: connected, connecting, or offline with the reason
+- Pre-show check of every cue against the open composition, repeated whenever it changes
+- Spreadsheet-style Cue Editor with an explicit Apply/Cancel draft workflow
+- No automatic update download, installation or restart during a show
+
+### LTC generation and MIDI timecode
+
+- LTC generator with muted internal loopback or audible output to any soundcard
+- MTC quarter-frame and full-frame messages with frame-rate detection
+- Built-in AppleMIDI/RTP-MIDI session with Bonjour discovery and per-engine peer routing
+
+### Bitfocus Companion control
+
+- Live clocks, signal health, next-cue countdowns and last-cue results
+- Resolume connection and pre-show warning variables and feedbacks
+- Generator, input, cue trigger, test-fade stop, cue reset, engine and clock actions
+- A coordinated dark preset library for Stream Deck and control surfaces
+- Localhost-only by default, with token-protected LAN access
+
+## Interface
+
+### Resolume & timing
+
+![Resolume and trigger timing settings](docs/screenshots/settings-window.jpg)
+
+Set the Resolume address, test the connection, and tune delay compensation, cue match tolerance and the jump threshold.
+
+### LTC generator
+
+![LTC generator settings](docs/screenshots/generator-output.jpg)
+
+Use a muted internal loopback for rehearsals, or route audible LTC to the system default or a selected physical/virtual audio device.
+
+### Companion
+
+![Companion API settings](docs/screenshots/companion-settings.jpg)
+
+Enable the Companion API on this computer, or allow token-protected connections from the local network.
+
+## Quick start
+
+1. Download and install TimeCue from the [latest release](https://github.com/4H1Mzs/TimeCue-Releases/releases/latest).
+2. In Resolume Arena, enable **Webserver & REST API** under `Preferences → Webserver`.
+3. In TimeCue Settings, set the Resolume address — usually `http://127.0.0.1:8080` — and select **Test connection**. The **Resolume** badge turns green.
+4. Select LTC audio, system MIDI, or RTP-MIDI for Engine A and choose the matching input.
+5. Add cues in the Cue Editor, or select **Scan Resolume** and **Read SMPTE offsets from composition file…** to import SMPTE clips. For parameter cues, choose **Parameter / effect** and pick the parameter.
+6. Start the real timecode source and confirm a stable lock, the expected cue behavior and no warnings on the Resolume badge before the show.
+
+## Bitfocus Companion
+
+Each release includes an offline Companion module, `timecue-<version>.tgz`. Install it as a custom module in Companion and add a **TimeCue** connection to `127.0.0.1:9140`. For Companion on another computer, enable LAN access in **TimeCue → Settings → Companion**, generate an access token, and enter the TimeCue computer's address and the same token in Companion. Keep port `9140` on a trusted show-control network.
 
 ## 4H1M
 
@@ -46,104 +177,6 @@ The `latest.yml`, `latest-mac.yml` and `latest-linux.yml` files are the public u
 </p>
 
 [4H1M.com](https://4h1m.com/) · [Instagram @4h1m.production](https://www.instagram.com/4h1m.production/)
-
-## Features
-
-### Two clocks, one clear show state
-
-- One or two independent timecode engines with always-visible clocks
-- LTC audio, system MIDI, or native RTP-MIDI source selection independently for each engine
-- Separate input device, channel, frame rate, numbering mode, and delay compensation per engine
-- 24, 25, 29.97 drop-frame/non-drop-frame, and 30 fps timecode
-- Forward and reverse LTC decoding with continuity and discontinuity handling
-- Raw or compensated clock display, with an unmistakable amber compensated state
-
-### Cue control made for Resolume
-
-- Trigger a clip by layer and column, or launch a full column across every layer
-- `At start`, `At end`, and `During` cue modes
-- Per-cue forward, reverse, or bidirectional filtering
-- Resolume composition scan and Engine A/B layer assignment
-- Manual cue tests, resettable cue state, and an operator-focused event history
-- `.timecue` show import and export
-
-### A proper cue-editing workflow
-
-- Fast inline editing of timecode, mode, engine and name in the live cue list
-- Dedicated spreadsheet-style Cue Editor window
-- Add, insert, duplicate, edit, and validate rows without covering the live monitor
-- Explicit Apply/Cancel workflow keeps unfinished edits away from the running show
-- Revision checks prevent an older editor draft from overwriting newer inline edits
-- Consistent Engine A/B color coding across clocks, live cues, and the editor
-- Disabled cues are visibly muted at a glance while remaining available for quick edits
-
-### LTC generation and routing
-
-- Internal loopback for testing the decoder and cue logic
-- Audible LTC output to the system default or a selected soundcard
-- Start time, frame rate, direction, level, and output routing controls
-- Optional local cue triggering while the generator also sends LTC to other devices
-
-### MIDI timecode and network sessions
-
-- MTC quarter-frame transport and full-frame locate messages
-- Automatic 24, 25, 29.97 drop-frame and 30 fps detection
-- Forward and reverse transport compensation
-- Physical and virtual system MIDI ports
-- Built-in AppleMIDI/RTP-MIDI session with Bonjour advertisement and discovery
-- Incoming invitations, direct hostname/IP connections, and independent peer routing for Engine A/B
-- OS-provided RTP-MIDI ports remain available through the system MIDI source
-- Quarter-frame fallback when the operating system does not grant SysEx access
-
-### Installation and updates
-
-- Per-user Windows installer with no administrator prompt
-- Signed and notarized macOS DMG plus ZIP update payloads
-- Linux AppImage distribution
-- In-app update check, download progress and explicit restart-to-install on Windows, signed macOS, and Linux builds
-- No automatic download, installation or restart during a show
-
-### Bitfocus Companion control
-
-- Live Engine A/B timecode, source, frame rate, direction and signal-health variables
-- Overall and per-engine next-cue name, target and countdown
-- Generator, input, cue reset, active-engine and clock-display actions
-- Signal, transport, countdown and last-cue-result feedbacks
-- A coordinated dark preset library ready for Stream Deck and control surfaces
-
-## About TimeCue
-
-TimeCue is a cross-platform desktop companion for timecode-driven Resolume shows. It listens to LTC from an audio interface or MTC from MIDI and RTP-MIDI sessions, keeps raw and compensated clocks visible, and fires precise clip or full-column cues through Resolume Arena's REST API.
-
-The app includes two independent timecode engines, a dedicated cue editor, LTC generation with soundcard output, delay compensation, composition scanning and a Bitfocus Companion integration.
-
-For the complete documentation, screenshots, setup guides and source code, visit the **[main TimeCue repository](https://github.com/4H1Mzs/TimeCue)**.
-
-## Interface
-
-### Live monitor
-
-![TimeCue main window showing two LTC engines and the live cue list](docs/screenshots/main-window.jpg)
-
-Both incoming clocks remain visible in dual-engine mode. Selecting an engine only chooses which clock the transport and generator controls; it does not hide the other engine's state.
-
-### Dedicated Cue Editor
-
-![TimeCue dedicated tabular Cue Editor](docs/screenshots/cue-editor.jpg)
-
-The Cue Editor gives each cue a real row with clear dividers, compact controls, and room for show data. Changes stay in a draft until **Apply changes** is selected.
-
-### Generator audio output
-
-![TimeCue LTC generator audio output settings](docs/screenshots/generator-output.jpg)
-
-Use a muted internal loopback for local tests, or route audible LTC to the system default or a selected physical/virtual audio device. Audio-output mode can also trigger TimeCue's local cues from the same generator timeline.
-
-### Settings and routing
-
-![TimeCue settings and routing](docs/screenshots/settings-window.jpg)
-
-Configure Resolume, timecode sources, delay compensation, generator output, RTP-MIDI and Companion from the dedicated settings window.
 
 ---
 
