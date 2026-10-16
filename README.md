@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.9.0-5c8cff?style=for-the-badge"></a>
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.10.0-5c8cff?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Version 0.9.0" src="https://img.shields.io/badge/version-0.9.0-5c8cff">
+  <img alt="Version 0.10.0" src="https://img.shields.io/badge/version-0.10.0-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
   <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
@@ -48,6 +48,14 @@ Get **[the latest TimeCue release](https://github.com/4H1Mzs/TimeCue-Releases/re
 
 > [!IMPORTANT]
 > TimeCue is preview software. Test the exact build, audio interface, timecode source and Resolume composition before using it in a live show.
+
+## What's new in 0.10
+
+### Web remote
+
+Prepare cues from your own computer while someone else works in Resolume on the show computer. TimeCue serves its Cue Editor and a control page to browsers in the same network: live clock, next and last cue, Resolume status, Listen, Generator, and Fire and Edit for each cue. It is off by default and protected by an access token. See [Web remote](#web-remote) below.
+
+![TimeCue web remote control page in a browser](docs/screenshots/remote-dashboard.jpg)
 
 ## What's new in 0.9
 
@@ -121,6 +129,13 @@ Resolume's API does not report SMPTE offsets, so **Read SMPTE offsets from compo
 - MTC quarter-frame and full-frame messages with frame-rate detection
 - Built-in AppleMIDI/RTP-MIDI session with Bonjour discovery and per-engine peer routing
 
+### Web remote
+
+- The full Cue Editor in a browser on another computer, including the live parameter picker
+- A control page with live timecode, next and last cue, Resolume status, Fire per cue, Generator and Listen
+- Edits from the browser and from TimeCue stay in sync; a stale draft never overwrites newer changes
+- Off by default and token-protected; tokens never leave the TimeCue computer in show files
+
 ### Bitfocus Companion control
 
 - Live clocks, signal health, next-cue countdowns and last-cue results
@@ -161,6 +176,18 @@ Enable the Companion API on this computer, or allow token-protected connections 
 ## Bitfocus Companion
 
 Each release includes an offline Companion module, `timecue-<version>.tgz`. Install it as a custom module in Companion and add a **TimeCue** connection to `127.0.0.1:9140`. For Companion on another computer, enable LAN access in **TimeCue → Settings → Companion**, generate an access token, and enter the TimeCue computer's address and the same token in Companion. Keep port `9140` on a trusted show-control network.
+
+## Web remote
+
+![Cue Editor in the browser](docs/screenshots/remote-editor.jpg)
+
+1. On the TimeCue computer, open **Settings → Web remote**, select **Enable web remote** (a token is generated) and **Save changes**.
+2. Select **Copy link** and open it in a browser on the other computer. The link contains the token, and the browser remembers it.
+3. Use **Fire** to trigger a cue, **Edit** to open it in the Cue Editor, or **Edit cues** for the whole list. **Apply changes** updates TimeCue immediately.
+
+The browser only talks to TimeCue, and TimeCue talks to Resolume with its own address, so Arena's webserver does not need to be reachable from the other computer. Windows asks once whether TimeCue may accept network connections; allow it for private networks. Use the web remote on a trusted show network only: anyone with the token can change cues and trigger them. Generate a new token to sign everyone out.
+
+![Web remote settings](docs/screenshots/settings-remote.jpg)
 
 ## 4H1M
 
