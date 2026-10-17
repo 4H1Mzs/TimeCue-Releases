@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.12.0-5c8cff?style=for-the-badge"></a>
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.12.2-5c8cff?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Version 0.12.0" src="https://img.shields.io/badge/version-0.12.0-5c8cff">
+  <img alt="Version 0.12.2" src="https://img.shields.io/badge/version-0.12.2-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
   <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
@@ -53,7 +53,7 @@ Get **[the latest TimeCue release](https://github.com/4H1Mzs/TimeCue-Releases/re
 
 ### Resolume autosave with backups
 
-TimeCue can save the open Resolume composition at a fixed interval while you program the show (**Settings → Resolume & timing → Resolume autosave**, 1–120 minutes). After each save it copies the composition into an `Autosave` folder next to it, with the date and time in the name, and keeps the newest 20 — open one in Arena with **File → Open** to go back. TimeCue finds the saved file by itself, and Arena keeps working on its own file without reloading. Autosave is off by default and never travels in show files; while it is on, a pulsing orange **Autosave** badge in the top bar and on the web remote keeps it from being forgotten on a show. Click the badge to turn it off.
+TimeCue can save the open Resolume composition at a fixed interval while you program the show (**Settings → Resolume & timing → Resolume autosave**, 1–120 minutes). After each save it copies the composition into an `Autosave` folder next to it, with the date and time in the name, and keeps the newest 20 — open one in Arena with **File → Open** to go back. TimeCue finds the saved file by itself, and Arena keeps working on its own file without reloading. Autosave is off by default and never travels in show files; while it is on, a pulsing orange **Autosave** badge in the top bar and on the web remote keeps it from being forgotten on a show. Click the badge to turn autosave on or off — or do it from Companion with the new autosave actions, feedbacks and presets.
 
 ## What's new in 0.11
 
