@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.10.1-5c8cff?style=for-the-badge"></a>
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.11.0-5c8cff?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Version 0.10.1" src="https://img.shields.io/badge/version-0.10.1-5c8cff">
+  <img alt="Version 0.11.0" src="https://img.shields.io/badge/version-0.11.0-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
   <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
@@ -48,6 +48,12 @@ Get **[the latest TimeCue release](https://github.com/4H1Mzs/TimeCue-Releases/re
 
 > [!IMPORTANT]
 > TimeCue is preview software. Test the exact build, audio interface, timecode source and Resolume composition before using it in a live show.
+
+## What's new in 0.11
+
+### Layer control cues
+
+A new **Layer control** target type acts on a whole layer: **Clear** ejects whatever is playing on it, and **Bypass on/off** and **Solo on/off** switch the layer's bypass and solo. They are set to an explicit state rather than toggled, so a cue gives the same result however often the timecode passes it. Use a pair of cues, such as Bypass on and later Bypass off, for a timed section.
 
 ## What's new in 0.10
 
@@ -110,6 +116,7 @@ Resolume's API does not report SMPTE offsets, so **Read SMPTE offsets from compo
 ### Clips, columns and parameters
 
 - Trigger a clip by layer and column, or launch a full column across every layer
+- Clear a layer, or switch its bypass and solo on or off, on timecode
 - `At start`, `At end`, and `During` cue modes with forward, reverse or bidirectional filtering
 - Set or fade any parameter: effects, opacity, layer master, blend modes, bypass, choices and colours
 - Timecode-locked, smoothed fades with selectable curves
