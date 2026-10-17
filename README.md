@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.10.0-5c8cff?style=for-the-badge"></a>
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.10.1-5c8cff?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Version 0.10.0" src="https://img.shields.io/badge/version-0.10.0-5c8cff">
+  <img alt="Version 0.10.1" src="https://img.shields.io/badge/version-0.10.1-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
   <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
@@ -120,7 +120,7 @@ Resolume's API does not report SMPTE offsets, so **Read SMPTE offsets from compo
 
 - Resolume connection badge: connected, connecting, or offline with the reason
 - Pre-show check of every cue against the open composition, repeated whenever it changes
-- Spreadsheet-style Cue Editor with an explicit Apply/Cancel draft workflow
+- Spreadsheet-style Cue Editor with an explicit Apply/Cancel draft workflow; cues are sorted by timecode when applied
 - No automatic update download, installation or restart during a show
 
 ### LTC generation and MIDI timecode
