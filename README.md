@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.12.3-5c8cff?style=for-the-badge"></a>
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.13.0-5c8cff?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Version 0.12.3" src="https://img.shields.io/badge/version-0.12.3-5c8cff">
+  <img alt="Version 0.13.0" src="https://img.shields.io/badge/version-0.13.0-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
   <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
@@ -49,6 +49,14 @@ Get **[the latest TimeCue release](https://github.com/4H1Mzs/TimeCue-Releases/re
 > [!IMPORTANT]
 > TimeCue is preview software. Test the exact build, audio interface, timecode source and Resolume composition before using it in a live show.
 
+## What's new in 0.13
+
+### A web remote you can leave open
+
+Follow the show from another computer, a tablet or a phone. The timecode is large and runs smoothly even over Wi-Fi, the next cue with a live countdown is always in view, and the cue list scrolls by itself to keep the next cue visible, with past cues dimmed. Every browser opens **read-only**; controlling TimeCue or editing cues needs the **PIN** set in **Settings → Web remote**, and the link no longer carries a secret. See [Web remote](#web-remote) below.
+
+![TimeCue web remote on a wide screen](docs/screenshots/remote-dashboard.jpg)
+
 ## What's new in 0.12
 
 ### Resolume autosave with backups
@@ -65,9 +73,7 @@ A new **Layer control** target type acts on a whole layer: **Clear** ejects what
 
 ### Web remote
 
-Prepare cues from your own computer while someone else works in Resolume on the show computer. TimeCue serves its Cue Editor and a control page to browsers in the same network: live clock, next and last cue, Resolume status, Listen, Generator, and Fire and Edit for each cue. It is off by default and protected by an access token. See [Web remote](#web-remote) below.
-
-![TimeCue web remote control page in a browser](docs/screenshots/remote-dashboard.jpg)
+Prepare cues from your own computer while someone else works in Resolume on the show computer. TimeCue serves its Cue Editor and a control page to browsers in the same network: live clock, next and last cue, Resolume status, Listen, Generator, and Fire and Edit for each cue. See [Web remote](#web-remote) below.
 
 ## What's new in 0.9
 
@@ -144,10 +150,11 @@ Resolume's API does not report SMPTE offsets, so **Read SMPTE offsets from compo
 
 ### Web remote
 
-- The full Cue Editor in a browser on another computer, including the live parameter picker
-- A control page with live timecode, next and last cue, Resolume status, Fire per cue, Generator and Listen
+- Follow the show from another computer, tablet or phone: large, smooth timecode, the next cue with a countdown, and a cue list that keeps the next cue in view
+- Read-only by default; unlock a browser tab with the PIN to control TimeCue and edit cues
+- The full Cue Editor in the browser, including the live parameter picker
 - Edits from the browser and from TimeCue stay in sync; a stale draft never overwrites newer changes
-- Off by default and token-protected; tokens never leave the TimeCue computer in show files
+- Off by default; the PIN never leaves the TimeCue computer in show files
 
 ### Bitfocus Companion control
 
@@ -192,13 +199,16 @@ Each release includes an offline Companion module, `timecue-<version>.tgz`. Inst
 
 ## Web remote
 
+![Web remote on a phone](docs/screenshots/remote-phone.jpg)
+
+1. On the TimeCue computer, open **Settings → Web remote**, select **Enable web remote**, choose a **PIN or password** (**New PIN** suggests six digits) and **Save changes**.
+2. Select **Copy address** and open it in a browser on the other device. The address contains no secret.
+3. The page opens **read-only**: large timecode, the next cue with a countdown and the cue list, which keeps the next cue in view. Scroll by hand to look around; it follows again after a few seconds or with **Follow**.
+4. To change anything, select **Locked · Unlock** and enter the PIN. That tab can then use Listen, Generator, **Fire** and **Edit**, and **Edit cues** for the whole list. **Lock** or closing the tab makes it read-only again.
+
 ![Cue Editor in the browser](docs/screenshots/remote-editor.jpg)
 
-1. On the TimeCue computer, open **Settings → Web remote**, select **Enable web remote** (a token is generated) and **Save changes**.
-2. Select **Copy link** and open it in a browser on the other computer. The link contains the token, and the browser remembers it.
-3. Use **Fire** to trigger a cue, **Edit** to open it in the Cue Editor, or **Edit cues** for the whole list. **Apply changes** updates TimeCue immediately.
-
-The browser only talks to TimeCue, and TimeCue talks to Resolume with its own address, so Arena's webserver does not need to be reachable from the other computer. Windows asks once whether TimeCue may accept network connections; allow it for private networks. Use the web remote on a trusted show network only: anyone with the token can change cues and trigger them. Generate a new token to sign everyone out.
+The browser only talks to TimeCue, and TimeCue talks to Resolume with its own address, so Arena's webserver does not need to be reachable from the other computer. Windows asks once whether TimeCue may accept network connections; allow it for private networks. Anyone on the network can watch unless **Ask for the PIN to view as well** is on. After five wrong PINs a computer is blocked for a minute; use six or more digits, or a password, on shared networks.
 
 ![Web remote settings](docs/screenshots/settings-remote.jpg)
 
