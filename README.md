@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.13.2-5c8cff?style=for-the-badge"></a>
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.13.3-5c8cff?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Version 0.13.2" src="https://img.shields.io/badge/version-0.13.2-5c8cff">
+  <img alt="Version 0.13.3" src="https://img.shields.io/badge/version-0.13.3-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
   <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
