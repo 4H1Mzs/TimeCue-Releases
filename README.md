@@ -11,6 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.13.3-5c8cff?style=for-the-badge"></a>
+  <a href="https://timecue.4h1m.com/"><img alt="Website" src="https://img.shields.io/badge/website-timecue.4h1m.com-30343b?style=for-the-badge"></a>
 </p>
 
 <p align="center">
