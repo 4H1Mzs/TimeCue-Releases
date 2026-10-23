@@ -10,12 +10,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.14.1-5c8cff?style=for-the-badge"></a>
+  <a href="https://github.com/4H1Mzs/TimeCue-Releases/releases/latest"><img alt="Download" src="https://img.shields.io/badge/download-TimeCue%200.14.2-5c8cff?style=for-the-badge"></a>
   <a href="https://timecue.4h1m.com/"><img alt="Website" src="https://img.shields.io/badge/website-timecue.4h1m.com-30343b?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Version 0.14.1" src="https://img.shields.io/badge/version-0.14.1-5c8cff">
+  <img alt="Version 0.14.2" src="https://img.shields.io/badge/version-0.14.2-5c8cff">
   <img alt="Windows macOS Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-30343b">
   <img alt="Resolume Arena 7.23–7.28" src="https://img.shields.io/badge/Resolume%20Arena-7.23%E2%80%937.28-d0473b">
   <img alt="Status Preview" src="https://img.shields.io/badge/status-preview-e7a84b">
@@ -55,6 +55,10 @@ Get **[the latest TimeCue release](https://github.com/4H1Mzs/TimeCue-Releases/re
 ### Arm and disarm
 
 The big transport button is now **Arm cues**. TimeCue listens to the timecode from the moment it opens, but cues fire and parameters are sent only while it is armed — and it always starts disarmed. The top bar, the web remote and Companion show **Armed** or **Disarmed**, and arming never fires cues that already passed.
+
+### Debug log of everything sent to Resolume
+
+Settings → Resolume & timing → **Debug log** records every request and WebSocket message TimeCue sends to Resolume, every Companion and web remote command, and the cue behind each one. Disabled cues are refused on every path, including Test, Companion and the web remote, and clocks show frames after a semicolon (HH:MM:SS;FF). New in 0.14.2.
 
 ## What's new in 0.13
 
